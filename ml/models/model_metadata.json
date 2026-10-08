@@ -1,0 +1,388 @@
+{
+  "training_date": "2026-10-08T15:35:13.890673",
+  "total_records": 8754,
+  "train_records": 7003,
+  "test_records": 1751,
+  "features": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "is_holiday",
+    "current_emergency_patients",
+    "new_emergency_admissions",
+    "emergency_discharges",
+    "occupied_emergency_beds",
+    "available_emergency_beds",
+    "total_emergency_beds",
+    "occupied_icu_beds",
+    "total_icu_beds",
+    "icu_admissions",
+    "icu_discharges",
+    "average_length_of_stay",
+    "staff_availability",
+    "ambulance_arrivals",
+    "esi_level_1",
+    "esi_level_2",
+    "esi_level_3",
+    "esi_level_4",
+    "esi_level_5",
+    "rolling_admissions_1h",
+    "rolling_admissions_3h",
+    "rolling_admissions_6h",
+    "average_admissions",
+    "admission_growth_rate",
+    "bed_occupancy_rate",
+    "icu_occupancy_rate",
+    "staff_availability_rate",
+    "sin_hour",
+    "cos_hour",
+    "sin_dow",
+    "cos_dow"
+  ],
+  "horizons": {
+    "ed_occupancy_1h": {
+      "horizon_hours": 1,
+      "target": "future_ed_occupancy_1h",
+      "model": "RandomForestRegressor",
+      "mae": 6.223,
+      "rmse": 7.979,
+      "r2": 0.885,
+      "model_file": "ml/models/rf_ed_occupancy_1h.joblib"
+    },
+    "ed_occupancy_2h": {
+      "horizon_hours": 2,
+      "target": "future_ed_occupancy_2h",
+      "model": "RandomForestRegressor",
+      "mae": 7.929,
+      "rmse": 10.244,
+      "r2": 0.8107,
+      "model_file": "ml/models/rf_ed_occupancy_2h.joblib"
+    },
+    "ed_occupancy_3h": {
+      "horizon_hours": 3,
+      "target": "future_ed_occupancy_3h",
+      "model": "RandomForestRegressor",
+      "mae": 8.901,
+      "rmse": 11.595,
+      "r2": 0.7584,
+      "model_file": "ml/models/rf_ed_occupancy_3h.joblib"
+    },
+    "ed_occupancy_6h": {
+      "horizon_hours": 6,
+      "target": "future_ed_occupancy_6h",
+      "model": "RandomForestRegressor",
+      "mae": 9.661,
+      "rmse": 12.592,
+      "r2": 0.7167,
+      "model_file": "ml/models/rf_ed_occupancy_6h.joblib"
+    },
+    "ed_patients_1h": {
+      "horizon_hours": 1,
+      "target": "future_ed_patients_1h",
+      "model": "RandomForestRegressor",
+      "mae": 3.133,
+      "rmse": 4.057,
+      "r2": 0.8824,
+      "model_file": "ml/models/rf_ed_patients_1h.joblib"
+    },
+    "ed_patients_2h": {
+      "horizon_hours": 2,
+      "target": "future_ed_patients_2h",
+      "model": "RandomForestRegressor",
+      "mae": 3.989,
+      "rmse": 5.205,
+      "r2": 0.8066,
+      "model_file": "ml/models/rf_ed_patients_2h.joblib"
+    },
+    "ed_patients_3h": {
+      "horizon_hours": 3,
+      "target": "future_ed_patients_3h",
+      "model": "RandomForestRegressor",
+      "mae": 4.481,
+      "rmse": 5.883,
+      "r2": 0.7539,
+      "model_file": "ml/models/rf_ed_patients_3h.joblib"
+    },
+    "ed_patients_6h": {
+      "horizon_hours": 6,
+      "target": "future_ed_patients_6h",
+      "model": "RandomForestRegressor",
+      "mae": 4.848,
+      "rmse": 6.375,
+      "r2": 0.7126,
+      "model_file": "ml/models/rf_ed_patients_6h.joblib"
+    },
+    "icu_occupancy_1h": {
+      "horizon_hours": 1,
+      "target": "future_icu_occupancy_1h",
+      "model": "RandomForestRegressor",
+      "mae": 3.074,
+      "rmse": 4.415,
+      "r2": 0.8883,
+      "model_file": "ml/models/rf_icu_occupancy_1h.joblib"
+    },
+    "icu_occupancy_2h": {
+      "horizon_hours": 2,
+      "target": "future_icu_occupancy_2h",
+      "model": "RandomForestRegressor",
+      "mae": 4.631,
+      "rmse": 6.153,
+      "r2": 0.7828,
+      "model_file": "ml/models/rf_icu_occupancy_2h.joblib"
+    },
+    "icu_occupancy_3h": {
+      "horizon_hours": 3,
+      "target": "future_icu_occupancy_3h",
+      "model": "RandomForestRegressor",
+      "mae": 5.739,
+      "rmse": 7.433,
+      "r2": 0.6827,
+      "model_file": "ml/models/rf_icu_occupancy_3h.joblib"
+    },
+    "icu_occupancy_6h": {
+      "horizon_hours": 6,
+      "target": "future_icu_occupancy_6h",
+      "model": "RandomForestRegressor",
+      "mae": 7.975,
+      "rmse": 10.04,
+      "r2": 0.4191,
+      "model_file": "ml/models/rf_icu_occupancy_6h.joblib"
+    }
+  },
+  "classification": {
+    "1h": {
+      "model": "RandomForestClassifier",
+      "accuracy": 0.7533,
+      "classes": [
+        "NORMAL",
+        "BUSY",
+        "HIGH",
+        "CRITICAL",
+        "OVER CAPACITY"
+      ],
+      "confusion_matrix": [
+        [
+          992,
+          173,
+          11,
+          0,
+          0
+        ],
+        [
+          28,
+          177,
+          61,
+          0,
+          0
+        ],
+        [
+          4,
+          58,
+          116,
+          19,
+          2
+        ],
+        [
+          0,
+          5,
+          30,
+          15,
+          12
+        ],
+        [
+          0,
+          1,
+          17,
+          11,
+          19
+        ]
+      ],
+      "classification_report": {
+        "BUSY": {
+          "precision": 0.427536231884058,
+          "recall": 0.6654135338345865,
+          "f1-score": 0.5205882352941177,
+          "support": 266.0
+        },
+        "CRITICAL": {
+          "precision": 0.3333333333333333,
+          "recall": 0.24193548387096775,
+          "f1-score": 0.2803738317757009,
+          "support": 62.0
+        },
+        "HIGH": {
+          "precision": 0.49361702127659574,
+          "recall": 0.5829145728643216,
+          "f1-score": 0.5345622119815668,
+          "support": 199.0
+        },
+        "NORMAL": {
+          "precision": 0.96875,
+          "recall": 0.8435374149659864,
+          "f1-score": 0.9018181818181819,
+          "support": 1176.0
+        },
+        "OVER CAPACITY": {
+          "precision": 0.5757575757575758,
+          "recall": 0.3958333333333333,
+          "f1-score": 0.4691358024691358,
+          "support": 48.0
+        },
+        "accuracy": 0.7532838378069674,
+        "macro avg": {
+          "precision": 0.5597988324503126,
+          "recall": 0.5459268677738391,
+          "f1-score": 0.5412956526677406,
+          "support": 1751.0
+        },
+        "weighted avg": {
+          "precision": 0.7992618247962493,
+          "recall": 0.7532838378069674,
+          "f1-score": 0.7683005303708514,
+          "support": 1751.0
+        }
+      },
+      "model_file": "ml/models/rf_capacity_classifier_1h.joblib"
+    }
+  },
+  "feature_importances": {
+    "ed_occupancy_1h": [
+      {
+        "feature": "rolling_admissions_3h",
+        "importance": 0.598
+      },
+      {
+        "feature": "bed_occupancy_rate",
+        "importance": 0.0667
+      },
+      {
+        "feature": "occupied_emergency_beds",
+        "importance": 0.0557
+      },
+      {
+        "feature": "cos_hour",
+        "importance": 0.0545
+      },
+      {
+        "feature": "current_emergency_patients",
+        "importance": 0.0491
+      },
+      {
+        "feature": "available_emergency_beds",
+        "importance": 0.0433
+      },
+      {
+        "feature": "staff_availability_rate",
+        "importance": 0.0199
+      },
+      {
+        "feature": "average_length_of_stay",
+        "importance": 0.0178
+      },
+      {
+        "feature": "average_admissions",
+        "importance": 0.0111
+      },
+      {
+        "feature": "admission_growth_rate",
+        "importance": 0.0088
+      },
+      {
+        "feature": "rolling_admissions_6h",
+        "importance": 0.0075
+      },
+      {
+        "feature": "hour",
+        "importance": 0.0072
+      },
+      {
+        "feature": "esi_level_3",
+        "importance": 0.0067
+      },
+      {
+        "feature": "emergency_discharges",
+        "importance": 0.0061
+      },
+      {
+        "feature": "sin_hour",
+        "importance": 0.0052
+      },
+      {
+        "feature": "rolling_admissions_1h",
+        "importance": 0.0044
+      },
+      {
+        "feature": "new_emergency_admissions",
+        "importance": 0.0042
+      },
+      {
+        "feature": "esi_level_4",
+        "importance": 0.0039
+      },
+      {
+        "feature": "sin_dow",
+        "importance": 0.0036
+      },
+      {
+        "feature": "esi_level_2",
+        "importance": 0.0033
+      },
+      {
+        "feature": "icu_occupancy_rate",
+        "importance": 0.0031
+      },
+      {
+        "feature": "staff_availability",
+        "importance": 0.0031
+      },
+      {
+        "feature": "occupied_icu_beds",
+        "importance": 0.003
+      },
+      {
+        "feature": "esi_level_5",
+        "importance": 0.0029
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 0.0028
+      },
+      {
+        "feature": "ambulance_arrivals",
+        "importance": 0.0024
+      },
+      {
+        "feature": "cos_dow",
+        "importance": 0.0019
+      },
+      {
+        "feature": "icu_discharges",
+        "importance": 0.0013
+      },
+      {
+        "feature": "icu_admissions",
+        "importance": 0.0008
+      },
+      {
+        "feature": "esi_level_1",
+        "importance": 0.0007
+      },
+      {
+        "feature": "is_holiday",
+        "importance": 0.0005
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.0005
+      },
+      {
+        "feature": "total_emergency_beds",
+        "importance": 0.0
+      },
+      {
+        "feature": "total_icu_beds",
+        "importance": 0.0
+      }
+    ]
+  }
+}
